@@ -21,3 +21,8 @@ Route::get('/main', function() {
 Route::get('/main/user/{id}', function($id) {
     return view('user', ['id'=>$id  ]);
 });
+
+Route::get('/users', 'UserController@index')->name('users');
+Route::get('/users/adduser', 'UserController@create')->name('adduser');
+Route::post('/users/adduser', 'UserController@store')->name('adduser');
+Route::delete('/users/deleteuser/{id}', 'UserController@destroy')->name('deleteuser');
