@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'login', 'name', 'surname', 'password',
+        'login', 'name', 'surname', 'password', 'user_type_id'
     ];
 
     /**
@@ -30,4 +30,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     protected $dates = ['deleted_at'];
+
+public function user_type()
+{
+    return $this->belongsTo('App\UserType', 'user_type_id', 'id');
+}
+
+
+
 }
